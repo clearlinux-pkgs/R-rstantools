@@ -4,7 +4,7 @@
 #
 Name     : R-rstantools
 Version  : 1.5.0
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/rstantools_1.5.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rstantools_1.5.0.tar.gz
 Summary  : Tools for Developing R Packages Interfacing with 'Stan'
