@@ -4,12 +4,18 @@
 #
 Name     : R-rstantools
 Version  : 1.5.1
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/rstantools_1.5.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rstantools_1.5.1.tar.gz
 Summary  : Tools for Developing R Packages Interfacing with 'Stan'
 Group    : Development/Tools
 License  : GPL-3.0
+Requires: R-assertthat
+Requires: R-markdown
+Requires: R-yaml
+BuildRequires : R-assertthat
+BuildRequires : R-markdown
+BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
 %description
@@ -23,11 +29,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534933831
+export SOURCE_DATE_EPOCH=1552787204
 
 %install
+export SOURCE_DATE_EPOCH=1552787204
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1534933831
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -62,8 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library rstantools|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  rstantools || :
 
 
 %files
@@ -96,3 +101,13 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rstantools/help/rstantools.rdx
 /usr/lib64/R/library/rstantools/html/00Index.html
 /usr/lib64/R/library/rstantools/html/R.css
+/usr/lib64/R/library/rstantools/tests/testthat.R
+/usr/lib64/R/library/rstantools/tests/testthat/bayes_R2.RDS
+/usr/lib64/R/library/rstantools/tests/testthat/loo_pit.RDS
+/usr/lib64/R/library/rstantools/tests/testthat/posterior_interval.RDS
+/usr/lib64/R/library/rstantools/tests/testthat/predictive_error.RDS
+/usr/lib64/R/library/rstantools/tests/testthat/predictive_interval.RDS
+/usr/lib64/R/library/rstantools/tests/testthat/test-default-methods.R
+/usr/lib64/R/library/rstantools/tests/testthat/test-generics-with-no-methods.R
+/usr/lib64/R/library/rstantools/tests/testthat/test-rstan_package_skeleton.R
+/usr/lib64/R/library/rstantools/tests/testthat/test.stan
