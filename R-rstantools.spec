@@ -4,17 +4,16 @@
 #
 Name     : R-rstantools
 Version  : 1.5.1
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/rstantools_1.5.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rstantools_1.5.1.tar.gz
 Summary  : Tools for Developing R Packages Interfacing with 'Stan'
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-assertthat
-Requires: R-markdown
-Requires: R-yaml
+Requires: R-rlang
 BuildRequires : R-assertthat
 BuildRequires : R-markdown
+BuildRequires : R-rlang
 BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
@@ -29,10 +28,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552787204
+export SOURCE_DATE_EPOCH=1552948121
 
 %install
-export SOURCE_DATE_EPOCH=1552787204
+export SOURCE_DATE_EPOCH=1552948121
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
