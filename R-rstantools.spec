@@ -4,7 +4,7 @@
 #
 Name     : R-rstantools
 Version  : 2.0.0
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/rstantools_2.0.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rstantools_2.0.0.tar.gz
 Summary  : Tools for Developing R Packages Interfacing with 'Stan'
@@ -13,35 +13,30 @@ License  : GPL-3.0
 Requires: R-Rcpp
 Requires: R-desc
 BuildRequires : R-Rcpp
-BuildRequires : R-assertthat
 BuildRequires : R-desc
-BuildRequires : R-markdown
-BuildRequires : R-rlang
-BuildRequires : R-usethis
-BuildRequires : R-yaml
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 No detailed description available
 
 %prep
 %setup -q -c -n rstantools
+cd %{_builddir}/rstantools
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571904748
+export SOURCE_DATE_EPOCH=1589772755
 
 %install
-export SOURCE_DATE_EPOCH=1571904748
+export SOURCE_DATE_EPOCH=1589772755
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
