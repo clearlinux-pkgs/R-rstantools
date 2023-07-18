@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-rstantools
-Version  : 2.3.1
-Release  : 57
-URL      : https://cran.r-project.org/src/contrib/rstantools_2.3.1.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/rstantools_2.3.1.tar.gz
+Version  : 2.3.1.1
+Release  : 58
+URL      : https://cran.r-project.org/src/contrib/rstantools_2.3.1.1.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/rstantools_2.3.1.1.tar.gz
 Summary  : Tools for Developing R Packages Interfacing with 'Stan'
 Group    : Development/Tools
 License  : GPL-3.0
@@ -24,16 +24,19 @@ No detailed description available
 
 %prep
 %setup -q -n rstantools
+pushd ..
+cp -a rstantools buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680189586
+export SOURCE_DATE_EPOCH=1689695904
 
 %install
-export SOURCE_DATE_EPOCH=1680189586
+export SOURCE_DATE_EPOCH=1689695904
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -71,6 +74,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc . || :
 
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
